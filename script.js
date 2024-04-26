@@ -18,3 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
         body.classList.add('dark-mode');
     }
 });
+
+let lastScrollTop = 0;
+
+window.addEventListener("scroll", function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > lastScrollTop) {
+        // Scroll down
+        document.querySelector("header").classList.add("hide-header");
+    } else {
+        // Scroll up
+        document.querySelector("header").classList.remove("hide-header");
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+}, false);
