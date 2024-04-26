@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Warna latar belakang */
+    color: #333; /* Warna teks */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #fff; /* Warna latar belakang header */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan header */
+}
+
+/* Menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333; /* Warna menu */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff; /* Warna menu saat dihover */
+}
+
+/* Konten */
+section {
+    padding: 20px 0;
+}
+
+/* Tombol Mode */
+.mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff; /* Warna tombol mode */
+    color: #fff; /* Warna teks tombol mode */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Tombol Mode saat dihover */
+.mode-toggle:hover {
+    background-color: #0056b3; /* Warna tombol mode saat dihover */
+}
+
+/* Mode Gelap */
+.dark-mode {
+    background-color: #333; /* Warna latar belakang mode gelap */
+    color: #fff; /* Warna teks mode gelap */
+}
+
+.dark-mode header {
+    background-color: #222; /* Warna latar belakang header mode gelap */
+}
+
+.dark-mode nav ul li a {
+    color: #fff; /* Warna menu mode gelap */
+}
+
+.dark-mode .mode-toggle {
+    background-color: #0056b3; /* Warna tombol mode gelap */
+}
