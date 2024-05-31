@@ -144,5 +144,32 @@ h1 {
 input[type="text"],
     input[type="email"],
     input[type="number"]{
-        width: 30%;
+        width: 100%;
+    }
+    #order {
+        background-color: rgba(255, 255, 255, 0);
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    #order input[type="text"], 
+    #order input[type="email"], 
+    #order input[type="tel"] {
+        width: 25%;
+        padding: 5px;
+        margin: 5px 0;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+    .button {
+        padding: 10px 20px;
+        margin: 10px 0;
+        cursor: pointer;
+        transition: .3s ease-in-out;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .button:hover {
+        background-color: #000000;
+        color: #fff;
     }
