@@ -1,33 +1,36 @@
 <?php
 $servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+$username = "root";  // Sesuaikan dengan username database Anda
+$password = "";      // Sesuaikan dengan password database Anda
+$dbname = "My_DB";   // Sesuaikan dengan nama database Anda
 
-// Create connection
-$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+// Membuat koneksi
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Memeriksa koneksi
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // proses data
+} else {
+    http_response_code(405);
+    echo "Method Not Allowed";
 }
 
-// Prepare and bind
+// Menyiapkan dan mengikat
 $stmt = $conn->prepare("INSERT INTO orders (name, email, telephone, order_name) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("ssss", $name, $email, $telephone, $order_name);
 
-// Set parameters and execute
+// Mengatur parameter dan mengeksekusi
 $name = $_POST['name'];
 $email = $_POST['email'];
 $telephone = $_POST['telephone'];
 $order_name = $_POST['order'];
 $stmt->execute();
 
-// Close statement and connection
+// Menutup pernyataan dan koneksi
 $stmt->close();
 $conn->close();
 
-// Redirect to admin page
+// Mengalihkan ke halaman admin
 header('Location: admin.html');
 exit;
 ?>

@@ -6,8 +6,24 @@
     <title>Admin - Daftar Pemesanan</title>
     <link rel="stylesheet" href="admin-style.css">
     <script src="admin-script.js"></script>
+    <script>
+        function fetchOrders() {
+            fetch('fetch-order.php')
+                .then(response => response.json())
+                .then(data => {
+                    const ordersTable = document.getElementById('orders');
+                    data.forEach(order => {
+                        const row = ordersTable.insertRow();
+                        row.insertCell(0).innerText = order.name;
+                        row.insertCell(1).innerText = order.email;
+                        row.insertCell(2).innerText = order.telephone;
+                        row.insertCell(3).innerText = order.order_name;
+                    });
+                });
+        }
+    </script>
 </head>
-<body>
+<body onload="fetchOrders()">
     <header class="header">
         <div class="container">
             <nav>
@@ -24,7 +40,7 @@
     </section>
     <section id="order" class="container">
         <h3>Daftar Pemesanan</h3>
-        <table>
+        <table id="orders">
             <thead>
                 <tr>
                     <th>No.</th>

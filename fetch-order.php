@@ -1,32 +1,32 @@
 <?php
 $servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+$username = "root";  // Sesuaikan dengan username database Anda
+$password = "";      // Sesuaikan dengan password database Anda
+$dbname = "My_DB";   // Sesuaikan dengan nama database Anda
 
-// Create connection
-$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+// Membuat koneksi
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+// Memeriksa koneksi
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Prepare and bind
+// Menyiapkan dan menjalankan pernyataan SQL
 $stmt = $conn->prepare("SELECT * FROM orders");
 $stmt->execute();
 $result = $stmt->get_result();
 
-// Fetch orders
+// Mengambil data pesanan
 $orders = array();
 while ($row = $result->fetch_assoc()) {
     $orders[] = $row;
 }
 
-// Close statement and connection
+// Menutup pernyataan dan koneksi
 $stmt->close();
 $conn->close();
 
-// Return orders in JSON format
+// Mengembalikan data pesanan dalam format JSON
 echo json_encode($orders);
 ?>

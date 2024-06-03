@@ -72,6 +72,16 @@ nav ul li a:hover {
     color: #007bff; /* Warna menu saat dihover */
 }
 
+.admin {
+    color: rgb(0, 0, 0);
+    margin-left: 20px;
+}
+
+.admin:hover {
+    color: #007bff;
+    margin-left: 20px;
+}
+
 /* Konten */
 section {
     padding: 20px 0;
