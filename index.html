@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jasa Pembuatan Web Kreatif</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Menu -->
     <header id="main-header" class="fixed-header">
         <div class="container">
             <nav>
@@ -23,13 +22,11 @@
         </div>
     </header>
 
-    <!-- Halaman Utama -->
     <section id="home" class="container">
         <h1>Selamat Datang di Jasa Pembuatan Web Kreatif</h1>
         <p>Kami adalah tim profesional yang siap membantu Anda mewujudkan website impian Anda.</p>
     </section>
 
-    <!-- Contoh Produk -->
     <section id="products" class="container">
         <h2>Contoh Produk</h2>
         <h3>Produk 1</h3>
@@ -56,27 +53,27 @@
         </div>
     </section>
 
-    <!-- Pemesanan Web -->
-<section id="order" class="container">
-    <h2>Pemesanan Web</h2>
-    <form action="process-order.php" method="post">
-        <label for="name">Nama Lengkap</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+    <section id="order" class="container">
+        <h2>Pemesanan Web</h2>
+        <form id="order-form" onsubmit="submitForm(event)">
+            <label for="name">Nama Lengkap</label><br>
+            <input type="text" id="name" name="name" required><br><br>
 
-        <label for="email">Email</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" required><br><br>
 
-        <label for="telephone">Nomor Telepon</label><br>
-        <input type="tel" id="telephone" name="telephone" required><br><br>
+            <label for="telephone">Nomor Telepon</label><br>
+            <input type="tel" id="telephone" name="telephone" required><br><br>
 
-        <label for="order">Nama Bisnis</label><br>
-        <input type="text" id="order" name="order" required><br><br>
+            <label for="order">Nama Bisnis</label><br>
+            <input type="text" id="order" name="order" required><br><br>
 
-        <button type="submit" onclick="showConfirmation()" class="button" value="submit">Submit</button>
-    </form>
-</section>
+            <button type="submit" class="button">Submit</button>
+        </form>
+        <div id="spinner" style="display: none;">Loading...</div>
+        <div id="confirmation" style="display: none;">Order successfully submitted!</div>
+    </section>
 
-    <!-- Nomor Kontak -->
     <section id="contact" class="container">
         <h2>Hubungi Kami</h2>
         <p>Jika Anda tertarik dengan layanan kami, jangan ragu untuk menghubungi kami melalui:</p>
@@ -88,7 +85,7 @@
 
     <footer>
         <strong>&copy; Mei 2024 </strong>
-            jasapembuatanwebkreatif.com. All Rights Reserved.</p>
+        jasapembuatanwebkreatif.com. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
