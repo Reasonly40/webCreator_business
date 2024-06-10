@@ -17,6 +17,9 @@ header {
     padding: 0 20px;
 }
 
+#order .h3 {
+    justify-content: center;
+}
 table {
     width: 100%;
     border-collapse: collapse;
