@@ -24,6 +24,48 @@
                     });
                 });
         }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+
+            // Show loading spinner
+            document.getElementById('spinner').style.display = 'block';
+
+            fetch('submit-order.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide loading spinner
+                document.getElementById('spinner').style.display = 'none';
+
+                // Show success message
+                const message = document.createElement('div');
+                message.className = 'success-message';
+                message.innerText = 'Order successfully submitted!';
+                document.body.appendChild(message);
+
+                // Clear form
+                form.reset();
+
+                // Fetch updated orders
+                fetchOrders();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Hide loading spinner
+                document.getElementById('spinner').style.display = 'none';
+
+                // Show error message
+                const message = document.createElement('div');
+                message.className = 'error-message';
+                message.innerText = 'Failed to submit the order. Please try again.';
+                document.body.appendChild(message);
+            });
+        }
     </script>
 </head>
 <body onload="fetchOrders()">
@@ -39,7 +81,14 @@
     </header>
 
     <section id="home" class="container">
-
+        <form id="order-form" onsubmit="submitForm(event)">
+            <input type="text" name="name" placeholder="Nama" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="telephone" placeholder="Telepon" required>
+            <input type="text" name="order_name" placeholder="Nama Pesanan" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="spinner" style="display: none;">Loading...</div>
     </section>
     <section id="order" class="container">
         <h3>Daftar Pemesanan</h3>
@@ -61,4 +110,3 @@
     </section>
 </body>
 </html>
-</script>
