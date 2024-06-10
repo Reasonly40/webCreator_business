@@ -14,10 +14,13 @@
                     const ordersTable = document.getElementById('orders');
                     data.forEach(order => {
                         const row = ordersTable.insertRow();
-                        row.insertCell(0).innerText = order.name;
-                        row.insertCell(1).innerText = order.email;
-                        row.insertCell(2).innerText = order.telephone;
-                        row.insertCell(3).innerText = order.order_name;
+                        row.insertCell(0).innerText = order.id;
+                        row.insertCell(1).innerText = order.name;
+                        row.insertCell(2).innerText = order.email;
+                        row.insertCell(3).innerText = order.telephone;
+                        row.insertCell(4).innerText = order.order_name;
+                        row.insertCell(5).innerText = order.create_at;
+
                     });
                 });
         }
@@ -47,7 +50,7 @@
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Telepon</th>
-                    <th>Nama Perusahaan</th>
+                    <th>Nama Pesanan</th>
                     <th>Tanggal Pemesanan</th>
                 </tr>
             </thead>
